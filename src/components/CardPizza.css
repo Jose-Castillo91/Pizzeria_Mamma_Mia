@@ -1,0 +1,12 @@
+
+.botonesCard{
+    display: flex;
+    justify-content: space-evenly;
+}
+.tituloPizza{
+    display: flex;
+    justify-content: center;
+}
+h6{
+    text-decoration: underline;
+}

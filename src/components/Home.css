@@ -1,0 +1,14 @@
+body{
+    position: relative ;
+    min-height: 100vh;
+}
+
+.contenedorPizzas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 40px;
+    margin-top: 20px;
+    
+}
+

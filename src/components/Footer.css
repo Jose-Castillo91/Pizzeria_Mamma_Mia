@@ -1,0 +1,16 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.882);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  
+}
+footer p {
+  margin-bottom: 0;
+  color: white;
+  font-weight: 600;
+}

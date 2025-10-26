@@ -1,0 +1,28 @@
+*{margin: 0;
+border: 0;
+box-sizing: border-box;}
+
+.header{
+    background-image: url(/Header.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 20rem;
+}
+h1{
+    text-shadow: 1px 1px 2px black;
+}
+h4{
+    text-shadow: 1px 1px 2px black;
+}
+.seccionTexto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(64, 64, 64, 0.207);
+    border-radius: 30px;
+    padding: 20px;
+}
