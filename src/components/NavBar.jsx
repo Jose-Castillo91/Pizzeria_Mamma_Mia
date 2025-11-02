@@ -21,7 +21,7 @@ function NavBar() {
           </Nav>
           <Nav className="ms-auto bg-body-tertiary">
             <Nav.Link href="#pricing">
-              Total: {total.toLocaleString()}$
+              Total: {total.toLocaleString('es-CL')}$
             </Nav.Link>
           </Nav>
         </Container>
