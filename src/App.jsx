@@ -1,6 +1,7 @@
 import "./App.css";
+import Cart from "./components/Cart";
 import Footer from "./components/Footer";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 // import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +12,8 @@ function App() {
   <NavBar/>
   {/* <Home/> */}
   {/* <Register/> */}
-  <Login/>
+  {/* <Login/> */}
+  <Cart/>
   <Footer/>
   </>;
 }

@@ -5,8 +5,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [contraseña, setcontraseña] = useState("");
 
-
-
   const onClickHandle = (event) => {
     event.preventDefault();
     console.log({ email, contraseña });
@@ -14,14 +12,6 @@ function Login() {
       alert("La contraseña debe ser mayor a 5 caracteres");
     }
   };
-
-  function onEmailChange({ target }) {
-    setEmail(target.value);
-  }
-
-  function onPasswordChange({ target }) {
-    setcontraseña(target.value);
-  }
 
   return (
     <>
@@ -33,7 +23,7 @@ function Login() {
           type="text"
           placeholder="Ingresatumail@gmail.com"
           value={email}
-          onChange={onEmailChange}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
@@ -43,7 +33,7 @@ function Login() {
           type="text"
           placeholder="Ingresa tu contraseña"
           value={contraseña}
-          onChange={onPasswordChange}
+          onChange={(e) => setcontraseña(e.target.value)}
           required
         />
         <button type="submit">Enviar</button>

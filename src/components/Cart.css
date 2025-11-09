@@ -1,0 +1,44 @@
+.contenedorCart {
+  width: 80%;
+  margin: 4em auto;
+  text-align: center;
+}
+
+.itemCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.infoPizza {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoPizza img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cantidadPizza button {
+  margin: 0 5px;
+}
+
+.totalCompra {
+  margin-top: 20px;
+}
+
+.btnPagar {
+  background-color: #2b8a3e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}

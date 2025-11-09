@@ -3,8 +3,8 @@ import "./Register.css";
 
 function Register() {
   const [email, setEmail] = useState("");
-  const [contraseña, setcontraseña] = useState("");
-  const [confirmar, setconfirmar] = useState("");
+  const [contraseña, setContraseña] = useState("");
+  const [confirmar, setConfirmar] = useState("");
 
   const onClickHandle = (event) => {
     event.preventDefault();
@@ -17,18 +17,6 @@ function Register() {
     }
   };
 
-  function onEmailChange({ target }) {
-    setEmail(target.value);
-  }
-
-  function onPasswordChange({ target }) {
-    setcontraseña(target.value);
-  }
-
-  function onConfirmPassword({ event }) {
-    setconfirmar(event.target.value);
-  }
-
   return (
     <>
       <h1>Registro</h1>
@@ -39,7 +27,7 @@ function Register() {
           type="text"
           placeholder="Ingresatumail@gmail.com"
           value={email}
-          onChange={onEmailChange}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
 
@@ -49,7 +37,7 @@ function Register() {
           type="text"
           placeholder="Ingresa tu contraseña"
           value={contraseña}
-          onChange={onPasswordChange}
+          onChange={(e) => setContraseña(e.target.value)}
           required
         />
         <label htmlFor="inputConfirmarContraseña">Confirmar contraseña</label>
@@ -58,7 +46,7 @@ function Register() {
           type="text"
           placeholder="Ingresa tu contraseña"
           value={confirmar}
-          onChange={onConfirmPassword}
+          onChange={(e) => setConfirmar(e.target.value)}
           required
         />
 
