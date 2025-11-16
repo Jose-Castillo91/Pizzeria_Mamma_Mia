@@ -1,30 +1,37 @@
-
+import { useEffect, useState } from "react";
 import CardPizza from "./CardPizza";
 import Header from "./Header";
 import "./Home.css";
-import "./pizzas"
-import { pizzas } from "./pizzas";
 
 function Home() {
+  const apiPizza = "http://localhost:3001/api/pizzas/p001";
+  const [pizza, setPizza] = useState(null);
+
+  useEffect(() => {
+    getPizzas();
+  }, []);
+
+  const getPizzas = async () => {
+    const url = apiPizza;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+    setPizza(data);
+  };
+
   return (
     <>
       <Header />
       <section className="contenedorPizzas">
-        
-
-
-        
-        {/* CardPizza ⬇️*/}
-        {pizzas.map((pizza, index) => (
+        {pizza && (
           <CardPizza
-          key={index}
-          name = {pizza.name}
-          price={pizza.price}
-          ingredients={pizza.ingredients}
-          img={pizza.img}
+            key={pizza.id}
+            name={pizza.name}
+            price={pizza.price}
+            ingredients={pizza.ingredients}
+            img={pizza.img}
           ></CardPizza>
-        ))}
-       
+        )}
       </section>
     </>
   );

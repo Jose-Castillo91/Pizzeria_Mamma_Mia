@@ -13,8 +13,8 @@ function CardPizza({ name, img, ingredients, price }) {
           <Card.Title className="tituloPizza">{name}</Card.Title>
           <Card.Text className="ingredientes">
             <h6>Ingredientes:</h6>
-            {ingredients.map((ingrediente, index) => (
-              <li key={index}>{ingrediente}</li>
+            {ingredients.map((ingredients, index) => (
+              <li key={index}>{ingredients}</li>
             ))}
           </Card.Text>
         </Card.Body>

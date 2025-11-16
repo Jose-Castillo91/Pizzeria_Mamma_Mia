@@ -1,44 +1,116 @@
 .contenedorCart {
-  width: 80%;
-  margin: 4em auto;
-  text-align: center;
+  width: 40%;
+  margin: 30px auto;
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+}
+
+.contenedorCart h2 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .itemCart {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  margin: 10px 0;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.infoPizza {
+.pizzaInfo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.infoPizza img {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
+.pizzaInfo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
-.cantidadPizza button {
-  margin: 0 5px;
+.pizzaName {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.pizzaPrice {
+  font-weight: 500;
+  color: #333;
+}
+
+.pizzaControls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pizzaControls button {
+  border: 1.5px solid transparent;
+  background-color: transparent;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnSub {
+  border-color: #c53030;
+  color: #c53030;
+}
+
+.btnAdd {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.btnSub:hover {
+  background-color: #c53030;
+  color: white;
+}
+
+.btnAdd:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+.count {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .totalCompra {
+  border-top: 1px solid #ddd;
   margin-top: 20px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.totalCompra h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .btnPagar {
-  background-color: #2b8a3e;
+  background-color: #111;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 6px;
+  padding: 8px 16px;
   cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btnPagar:hover {
+  background-color: #333;
 }
