@@ -12,7 +12,7 @@ function CardPizza({ name, img, ingredients, price }) {
         <Card.Body>
           <Card.Title className="tituloPizza">{name}</Card.Title>
           <Card.Text className="ingredientes">
-            <h6>Ingredientes:</h6>
+            <span style={{textDecoration: "underline"}}>Ingredientes:</span>
             {ingredients.map((ingredients, index) => (
               <li key={index}>{ingredients}</li>
             ))}

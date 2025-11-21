@@ -1,0 +1,71 @@
+.card {
+  border-radius: 2em;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 2em;
+  width: "28rem"
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.card img {
+  height: 230px;
+  object-fit: cover;
+}
+
+.tituloPizza {
+  text-align: center;
+  font-size: 1.7rem !important;
+  font-weight: 600;
+  font-family: "Quando", serif;
+  margin-bottom: 0.5em;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.ingredientes {
+  margin-left: 0.5em;
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+  color: #555;
+  font-size: 0.95rem;
+    text-transform: capitalize;
+}
+
+.ingredientes li {
+  margin-left: 1rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.ingredientes h6 {
+  text-decoration: underline;
+  font-family: "Mallanna", sans-serif;
+  color: #777;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.list-group-item {
+  background-color: #fafafa;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.botonesCard {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.botonesCard button {
+  width: 48%;
+  font-weight: 600;
+  padding: 0.6rem 0;
+}

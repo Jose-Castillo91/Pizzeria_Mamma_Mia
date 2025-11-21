@@ -1,6 +1,7 @@
-
-body{
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 56px;
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 56px;
+  background-color: #fafafa;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
