@@ -1,8 +1,10 @@
 .contenedorCart {
   width: 40%;
-  margin: 30px auto;
+  margin: 50px auto;
   font-family: "Segoe UI", sans-serif;
   color: #222;
+  border: 2px solid rgba(0, 0, 0, 0.182);
+  padding: 2em;
 }
 
 .contenedorCart h2 {

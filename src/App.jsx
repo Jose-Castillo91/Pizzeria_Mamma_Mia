@@ -10,7 +10,7 @@ import Register from "./pages/Register/Register.jsx";
 import { Route, Routes } from "react-router";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
-import Pizza from "./pages/Pizza.jsx";
+import Pizza from "./pages/Pizza/Pizza.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 
 function App() {
@@ -24,17 +24,8 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/pizza/001" element={<Pizza/>}/>
         <Route path="/profile" element={<Profile/>}/>
-        <Route path="/404" element={<NotFound/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
-      {/* <Profile/> */}
-      {/* <NotFound/> */}
-      {/* <Pizza /> */}
-      {/* <CardPizza/> */}
-      {/* <NotFound /> */}
-      {/* <Home/> */}
-      {/* <Register/> */}
-      {/* <Login/> */}
-      {/* <Cart /> */}
       <Footer />
     </>
   );

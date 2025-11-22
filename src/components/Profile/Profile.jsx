@@ -9,7 +9,7 @@ function Profile() {
 
   return (
     <div className="profile-container">
-      <h2 className="profile-title">Perfil de Usuario</h2>
+      <h2  className="profile-title">Perfil de Usuario</h2>
 
       <p className="profile-email">
         <strong>Email:</strong> {email}
