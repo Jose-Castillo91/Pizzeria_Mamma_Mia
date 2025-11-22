@@ -19,6 +19,9 @@ background: linear-gradient(180deg, rgba(6,8,15,0.5), rgba(2,6,23,0.6));
 }
 
 
+
+
+
 .nf-card{
 width: 100%;
 max-width: 720px;
@@ -29,6 +32,12 @@ box-shadow: 0 8px 30px rgba(2,6,23,0.6);
 color: white;
 text-align: center;
 border: 1px solid rgba(255,255,255,0.04);
+transition: all 1s ease;
+}
+
+.nf-card:hover{
+    background-color: rgb(63, 63, 63);
+    scale: 1;
 }
 
 
@@ -40,10 +49,6 @@ justify-content: center;
 width: 120px;
 height: 120px;
 margin: 0 auto 1rem;
-border-radius: 999px;
-background: linear-gradient(135deg, var(--accent), var(--accent-2));
-box-shadow: 0 6px 20px rgba(124,58,237,0.18);
-color: white;
 }
 
 

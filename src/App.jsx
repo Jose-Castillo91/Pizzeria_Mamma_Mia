@@ -13,6 +13,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import Pizza from "./pages/Pizza/Pizza.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 
+
 function App() {
   return (
     <>
