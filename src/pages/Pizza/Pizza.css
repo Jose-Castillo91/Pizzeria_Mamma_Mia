@@ -7,3 +7,10 @@
   padding: 20px;
   text-transform: capitalize;
 }
+.card-body01{
+    margin-top: 7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

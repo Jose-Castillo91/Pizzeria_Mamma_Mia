@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Pizza.css"
+import "./Pizza.css";
 
 function Pizza() {
   const apiPizza = "http://localhost:3001/api/pizzas/p001";
@@ -20,26 +20,27 @@ function Pizza() {
 
   return (
     <div>
-     <div className="container" style={{ width: "28rem", borderRadius: "3%" }}>
+      <div className="container" style={{ width: "28rem", borderRadius: "3%" }}>
         <div className="card">
           <div className="card-image">
             <img src={pizza.img} />
           </div>
           <div className="card-text01">
-
             <h2 className="card-title">{pizza.name}</h2>
-            <p className="card-body">
-            {pizza.desc}
-            </p>
+            <p className="card-body">{pizza.desc}</p>
           </div>
-
+          <p className="card-body01">
+            <span style={{ textDecoration: "underline" }}>Ingredientes:</span>
+            {pizza.ingredients.map((ingredients, index) => (
+              <li key={index}>{ingredients}</li>
+            ))}
+          </p>
 
           <div className="card-price">${pizza.price}</div>
 
           <div className="card-buttons">
-          <button  className="btn-ver">Ver Más</button>
-          <button className="btn-add">Añadir</button>
-        </div>
+            <button className="btn-ver">Añadir</button>
+          </div>
         </div>
       </div>
     </div>
