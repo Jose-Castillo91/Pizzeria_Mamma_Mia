@@ -1,0 +1,9 @@
+.card-text01 {
+  margin: -30px auto;
+  margin-bottom: -50px;
+  width: 300px;
+  background-color: #1d1c20;
+  color: #fff;
+  padding: 20px;
+  text-transform: capitalize;
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import CardPizza from "../../components/CardPizza/CardPizza";
 import Header from "../../components/Header/Header";
 import "./Home.css";
+import CardPizza from "../../components/CardPizza/CardPizza";
 
 function Home() {
   const apiPizza = "http://localhost:3001/api/pizzas"; // ahora ruta completa
@@ -21,6 +21,8 @@ function Home() {
     <>
       <Header />
       <section className="contenedorPizzas">
+       
+
         {pizzas.length > 0 &&
           pizzas.map((pizza) => (
             <CardPizza

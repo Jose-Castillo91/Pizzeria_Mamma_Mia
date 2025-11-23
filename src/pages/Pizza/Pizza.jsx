@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Pizza.css"
 
 function Pizza() {
   const apiPizza = "http://localhost:3001/api/pizzas/p001";
@@ -18,36 +19,29 @@ function Pizza() {
   if (!pizza) return <p>Cargando pizza...</p>;
 
   return (
-    <div style={{ width: "400px", margin: "20px auto" }}>
-      <h1>{pizza.name}</h1>
+    <div>
+     <div className="container" style={{ width: "28rem", borderRadius: "3%" }}>
+        <div className="card">
+          <div className="card-image">
+            <img src={pizza.img} />
+          </div>
+          <div className="card-text01">
 
-      <img 
-        src={pizza.img}
-        alt={pizza.name}
-        style={{ width: "100%", borderRadius: "10px" }}
-      />
+            <h2 className="card-title">{pizza.name}</h2>
+            <p className="card-body">
+            {pizza.desc}
+            </p>
+          </div>
 
-      <p><strong>Precio:</strong> ${pizza.price}</p>
 
-      <p><strong>Descripción:</strong> {pizza.desc}</p>
+          <div className="card-price">${pizza.price}</div>
 
-      <p><strong>Ingredientes:</strong></p>
-      <ul>
-        {pizza.ingredients.map((ing, index) => (
-          <li key={index}>{ing}</li>
-        ))}
-      </ul>
-
-      <button style={{
-        padding: "10px 20px",
-        background: "black",
-        color: "white",
-        border: "none",
-        borderRadius: "8px",
-        cursor: "pointer"
-      }}>
-        Añadir al carrito
-      </button>
+          <div className="card-buttons">
+          <button  className="btn-ver">Ver Más</button>
+          <button className="btn-add">Añadir</button>
+        </div>
+        </div>
+      </div>
     </div>
   );
 }

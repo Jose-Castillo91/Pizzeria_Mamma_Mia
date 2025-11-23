@@ -1,35 +1,37 @@
 /* eslint-disable react/prop-types */
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
-import "./CardPizza.css";
 import { useNavigate } from "react-router";
-
-function CardPizza({ name, img, ingredients, price }) {
-  const navigate = useNavigate();
+import "./CardPizza.css"
+function CardPizza({name, img, ingredients, price}) {
+    const navitate = useNavigate();
   return (
-    <>
-      <Card style={{ width: "28rem", borderRadius: "3%" }}>
-        <Card.Img  variant="top" src={img} />
-        <Card.Body>
-          <Card.Title className="tituloPizza">{name}</Card.Title>
-          <Card.Text className="ingredientes">
-            <span style={{textDecoration: "underline"}}>Ingredientes:</span>
+    <div>
+
+      <div className="container" style={{ width: "28rem", borderRadius: "3%" }}>
+        <div className="card">
+          <div className="card-image">
+            <img src={img} />
+          </div>
+          <div className="card-text">
+
+            <h2 className="card-title">{name}</h2>
+            <p className="card-body">
+             <span style={{textDecoration: "underline"}}>Ingredientes:</span>
             {ingredients.map((ingredients, index) => (
               <li key={index}>{ingredients}</li>
             ))}
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>Precio: ${price.toLocaleString()}</ListGroup.Item>
-        </ListGroup>
-        <Card.Body className="botonesCard">
+            </p>
+          </div>
 
-          <Button onClick={()=> navigate("/pizza/001")} variant="primary">Ver Más</Button>
-          <Button variant="dark">Añadir</Button>
-        </Card.Body>
-      </Card>
-    </>
+
+          <div className="card-price">${price}</div>
+
+          <div className="card-buttons">
+          <button onClick={() => navitate("/pizza/001")} className="btn-ver">Ver Más</button>
+          <button className="btn-add">Añadir</button>
+        </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
