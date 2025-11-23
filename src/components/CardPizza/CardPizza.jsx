@@ -23,7 +23,7 @@ function CardPizza({name, img, ingredients, price}) {
           </div>
 
 
-          <div className="card-price">${price}</div>
+          <div className="card-price">${price.toLocaleString('es-CL')}</div>
 
           <div className="card-buttons">
           <button onClick={() => navitate("/pizza/001")} className="btn-ver">Ver Más</button>

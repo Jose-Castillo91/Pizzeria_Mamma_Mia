@@ -36,7 +36,7 @@ function Pizza() {
             ))}
           </p>
 
-          <div className="card-price">${pizza.price}</div>
+          <div className="card-price">${pizza.price.toLocaleString('es-CL')}</div>
 
           <div className="card-buttons">
             <button className="btn-ver">Añadir</button>

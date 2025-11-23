@@ -38,7 +38,7 @@ function Cart() {
         <div key={pizza.id} className="itemCart">
           <div className="pizzaInfo">
             <img src={pizza.img} alt={pizza.name} />
-            <span className="pizzaName">{pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}</span>
+            <span className="pizzaName">{pizza.name}</span>
           </div>
 
           <div className="pizzaPrice">{formatCLP(pizza.price)}</div>
