@@ -3,6 +3,7 @@ import "./Cart.css";
 import { useContext } from "react";
 
 function Cart() {
+
   const {cart, setCart, total} = useContext(MyContext)
 
   const handleAdd = (id) => {
