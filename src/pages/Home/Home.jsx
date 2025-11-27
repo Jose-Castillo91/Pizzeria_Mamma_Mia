@@ -1,22 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext} from "react";
 import Header from "../../components/Header/Header";
 import "./Home.css";
 import CardPizza from "../../components/CardPizza/CardPizza";
+import { MyContext } from "../../Context";
 
 function Home() {
-  const apiPizza = "http://localhost:3001/api/pizzas"; // ahora ruta completa
-  const [pizzas, setPizzas] = useState([]); // ahora es un array
-
-  useEffect(() => {
-    getPizzas();
-  }, []);
-
-  const getPizzas = async () => {
-    const response = await fetch(apiPizza);
-    const data = await response.json();
-    setPizzas(data);
-  };
-
+  const {pizzas} = useContext(MyContext)
+console.log(pizzas)
   return (
     <>
       <Header />
@@ -27,6 +17,7 @@ function Home() {
           pizzas.map((pizza) => (
             <CardPizza
               key={pizza.id}
+              id={pizza.id}
               name={pizza.name}
               price={pizza.price}
               ingredients={pizza.ingredients}

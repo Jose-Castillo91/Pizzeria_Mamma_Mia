@@ -3,9 +3,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./NavBar.css";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { MyContext } from "../../Context";
 
 function NavBar() {
-  const total = 25000;
+   const {total} = useContext(MyContext)
+
+
   const token = true;
 
   return (

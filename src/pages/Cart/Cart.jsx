@@ -1,9 +1,9 @@
-import { pizzaCart } from "../pizzas";
+import { MyContext } from "../../Context";
 import "./Cart.css";
-import { useState } from "react";
+import { useContext } from "react";
 
 function Cart() {
-  const [cart, setCart] = useState(pizzaCart);
+  const {cart, setCart, total} = useContext(MyContext)
 
   const handleAdd = (id) => {
     const updated = cart.map((pizza) =>
@@ -21,17 +21,16 @@ function Cart() {
     setCart(updated);
   };
 
-  const total = cart.reduce(
-    (acc, pizza) => acc + pizza.price * pizza.count,
-    0
-  );
 
   // Formatear CLP
   const formatCLP = (valor) =>
     valor.toLocaleString("es-CL", { style: "currency", currency: "CLP" });
 
   return (
+    
     <section className="contenedorCart">
+      
+      
       <h2>Detalles del pedido:</h2>
 
       {cart.map((pizza) => (
