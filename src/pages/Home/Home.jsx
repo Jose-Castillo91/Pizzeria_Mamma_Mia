@@ -6,7 +6,6 @@ import { MyContext } from "../../Context";
 
 function Home() {
   const {pizzas} = useContext(MyContext)
-console.log(pizzas)
   return (
     <>
       <Header />

@@ -5,7 +5,8 @@ import { pizzass } from "./pages/pizzas";
 export const MyContext = createContext({});
 
 export const ContextProvider = ({ children }) => {
-  const apiPizza = "http://localhost:3001/api/pizzas"; // ahora ruta completa
+
+  const apiPizza = "http://localhost:3001/api/pizzas"; 
   const [pizzas, setPizzas] = useState([]);
   const [cart, setCart] = useState(pizzass);
 

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import "./Pizza.css";
 
+
 function Pizza() {
+  // const { pizz, setCart } = useContext(MyContext);
   const apiPizza = "http://localhost:3001/api/pizzas/p001";
   const [pizza, setPizza] = useState(null);
 
