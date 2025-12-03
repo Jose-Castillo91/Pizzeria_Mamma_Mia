@@ -1,4 +1,3 @@
-
 import "./App.css";
 
 import Footer from "./components/Footer/Footer";
@@ -13,19 +12,18 @@ import Cart from "./pages/Cart/Cart.jsx";
 import Pizza from "./pages/Pizza/Pizza.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 
-
 function App() {
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/pizza/P001" element={<Pizza/>}/>
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path="*" element={<NotFound/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/pizza/:id" element={<Pizza />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

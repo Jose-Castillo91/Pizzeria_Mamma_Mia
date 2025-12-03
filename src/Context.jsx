@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
-import { pizzass } from "./pages/pizzas";
 
 export const MyContext = createContext({});
 
 export const ContextProvider = ({ children }) => {
-
-  const apiPizza = "http://localhost:3001/api/pizzas"; 
+  const apiPizza = "http://localhost:3001/api/pizzas";
   const [pizzas, setPizzas] = useState([]);
-  const [cart, setCart] = useState(pizzass);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     getPizzas();
@@ -26,7 +24,7 @@ export const ContextProvider = ({ children }) => {
     cart,
     setCart,
     total,
-    pizzas
+    pizzas,
   };
 
   return (

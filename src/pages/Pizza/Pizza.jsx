@@ -1,24 +1,35 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { useParams } from "react-router";
+import { MyContext } from "../../Context";
 import "./Pizza.css";
 
 
 function Pizza() {
-  // const { pizz, setCart } = useContext(MyContext);
-  const apiPizza = "http://localhost:3001/api/pizzas/p001";
-  const [pizza, setPizza] = useState(null);
+  const { id } = useParams();
+  const { pizzas, cart, setCart } = useContext(MyContext);
 
-  useEffect(() => {
-    getPizzas();
-  }, []);
+  const pizza = pizzas.find(
+    (p) => p.id.toLowerCase() === String(id).toLowerCase()
+  );
 
-  const getPizzas = async () => {
-    const response = await fetch(apiPizza);
-    const data = await response.json();
-    setPizza(data);
-  };
-
-  // Mientras carga la data
   if (!pizza) return <p>Cargando pizza...</p>;
+
+  const handleAdd = () => {
+    const existing = cart.find((p) => p.id === pizza.id);
+
+    if (existing) {
+      const updated = cart.map((p) =>
+        p.id === pizza.id ? { ...p, count: p.count + 1 } : p
+      );
+      setCart(updated);
+    } else {
+      const newPizza = {
+        ...pizza,
+        count: 1,
+      };
+      setCart([...cart, newPizza]);
+    }
+  };
 
   return (
     <div>
@@ -41,7 +52,7 @@ function Pizza() {
           <div className="card-price">${pizza.price.toLocaleString('es-CL')}</div>
 
           <div className="card-buttons">
-            <button className="btn-ver">Añadir</button>
+            <button className="btn-ver" onClick={handleAdd}>Añadir</button>
           </div>
         </div>
       </div>

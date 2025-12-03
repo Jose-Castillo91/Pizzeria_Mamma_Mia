@@ -9,10 +9,24 @@ function CardPizza({ id, name, img, ingredients, price }) {
   const { cart, setCart } = useContext(MyContext);
 
   const handleAdd = (id) => {
-    const updated = cart.map((pizza) =>
-      pizza.id === id ? { ...pizza, count: pizza.count + 1 } : pizza
-    );
-    setCart(updated);
+    const existing = cart.find((pizza) => pizza.id === id);
+
+    if (existing) {
+      const updated = cart.map((pizza) =>
+        pizza.id === id ? { ...pizza, count: pizza.count + 1 } : pizza
+      );
+      setCart(updated);
+    } else {
+      const newPizza = {
+        id,
+        name,
+        img,
+        ingredients,
+        price,
+        count: 1,
+      };
+      setCart([...cart, newPizza]);
+    }
   };
 
   return (
@@ -36,7 +50,7 @@ function CardPizza({ id, name, img, ingredients, price }) {
           <div className="card-price">${price.toLocaleString("es-CL")}</div>
 
           <div className="card-buttons">
-            <button onClick={() => navigate("/pizza/P001")} className="btn-ver">
+            <button onClick={() => navigate(`/pizza/${id}`)} className="btn-ver">
               Ver Más
             </button>
           

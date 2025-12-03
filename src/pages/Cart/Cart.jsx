@@ -14,14 +14,14 @@ function Cart() {
   };
 
   const handleSubtract = (id) => {
-  const updated = cart.map((pizza) =>
-    pizza.id === id
-      ? { ...pizza, count: Math.max(pizza.count - 1, 0) }
-      : pizza
-  );
+    const updated = cart
+      .map((pizza) =>
+        pizza.id === id ? { ...pizza, count: pizza.count - 1 } : pizza
+      )
+      .filter((pizza) => pizza.count > 0);
 
-  setCart(updated);
-};
+    setCart(updated);
+  };
 
 
 
