@@ -1,16 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { MyContext } from "../../Context";
 import "./Pizza.css";
 
-
 function Pizza() {
   const { id } = useParams();
-  const { pizzas, cart, setCart } = useContext(MyContext);
+  const { cart, setCart } = useContext(MyContext);
+  const [pizza, setPizza] = useState(null);
 
-  const pizza = pizzas.find(
-    (p) => p.id.toLowerCase() === String(id).toLowerCase()
-  );
+  const apiPizza = `http://localhost:3001/api/pizzas/${id}`;
+
+  useEffect(() => {
+    const getPizza = async () => {
+      const response = await fetch(apiPizza);
+      const data = await response.json();
+      setPizza(data);
+    };
+
+    getPizza();
+  }, [apiPizza]);
 
   if (!pizza) return <p>Cargando pizza...</p>;
 
@@ -49,10 +57,14 @@ function Pizza() {
             ))}
           </p>
 
-          <div className="card-price">${pizza.price.toLocaleString('es-CL')}</div>
+          <div className="card-price">
+            ${pizza.price.toLocaleString("es-CL")}
+          </div>
 
           <div className="card-buttons">
-            <button className="btn-ver" onClick={handleAdd}>Añadir</button>
+            <button className="btn-ver" onClick={handleAdd}>
+              Añadir
+            </button>
           </div>
         </div>
       </div>

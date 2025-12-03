@@ -1,10 +1,11 @@
 import { MyContext } from "../../Context";
 import "./Cart.css";
 import { useContext } from "react";
+import { UserContext } from "../../UserContext.jsx";
 
 function Cart() {
-
-  const {cart, setCart, total} = useContext(MyContext)
+  const { cart, setCart, total } = useContext(MyContext);
+  const { token } = useContext(UserContext);
 
   const handleAdd = (id) => {
     const updated = cart.map((pizza) =>
@@ -23,44 +24,46 @@ function Cart() {
     setCart(updated);
   };
 
-
-
   const formatCLP = (valor) =>
     valor.toLocaleString("es-CL", { style: "currency", currency: "CLP" });
 
   return (
-    
     <section className="contenedorCart">
-      
-      
       <h2>Detalles del pedido:</h2>
 
       {cart
-  .filter((pizza) => pizza.count > 0)
-  .map((pizza) => (
-    <div key={pizza.id} className="itemCart">
-      <div className="pizzaInfo">
-        <img src={pizza.img} alt={pizza.name} />
-        <span className="pizzaName">{pizza.name}</span>
-      </div>
+        .filter((pizza) => pizza.count > 0)
+        .map((pizza) => (
+          <div key={pizza.id} className="itemCart">
+            <div className="pizzaInfo">
+              <img src={pizza.img} alt={pizza.name} />
+              <span className="pizzaName">{pizza.name}</span>
+            </div>
 
-      <div className="pizzaPrice">{formatCLP(pizza.price)}</div>
+            <div className="pizzaPrice">{formatCLP(pizza.price)}</div>
 
-      <div className="pizzaControls">
-        <button className="btnSub" onClick={() => handleSubtract(pizza.id)}>
-          -
-        </button>
-        <span className="count">{pizza.count}</span>
-        <button className="btnAdd" onClick={() => handleAdd(pizza.id)}>
-          +
-        </button>
-      </div>
-    </div>
-  ))}
+            <div className="pizzaControls">
+              <button
+                className="btnSub"
+                onClick={() => handleSubtract(pizza.id)}
+              >
+                -
+              </button>
+              <span className="count">{pizza.count}</span>
+              <button className="btnAdd" onClick={() => handleAdd(pizza.id)}>
+                +
+              </button>
+            </div>
+          </div>
+        ))}
 
       <div className="totalCompra">
-        <h3>Total: <span>{formatCLP(total)}</span></h3>
-        <button className="btnPagar">Pagar</button>
+        <h3>
+          Total: <span>{formatCLP(total)}</span>
+        </h3>
+        <button className="btnPagar" disabled={!token}>
+          Pagar
+        </button>
       </div>
     </section>
   );

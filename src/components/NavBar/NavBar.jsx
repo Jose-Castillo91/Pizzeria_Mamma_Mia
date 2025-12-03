@@ -5,12 +5,11 @@ import "./NavBar.css";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { MyContext } from "../../Context";
+import { UserContext } from "../../UserContext.jsx";
 
 function NavBar() {
-   const {total} = useContext(MyContext)
-
-
-  const token = true;
+  const { total } = useContext(MyContext);
+  const { token, logout } = useContext(UserContext);
 
   return (
     <>
@@ -21,13 +20,28 @@ function NavBar() {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to={token ? "/profile" : "/register"}>
-              {token ? "Profile" : "Register"}
-            </Nav.Link>
-            <Nav.Link as={Link} to={token ? "/login" : "register"}>{token ? "Logout" : "Login"}</Nav.Link>
+            {token ? (
+              <>
+                <Nav.Link as={Link} to="/profile">
+                  Profile
+                </Nav.Link>
+                <Nav.Link as={Link} to="/login" onClick={logout}>
+                  Logout
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+                <Nav.Link as={Link} to="/register">
+                  Register
+                </Nav.Link>
+              </>
+            )}
           </Nav>
           <Nav className="ms-auto bg-body-tertiary">
-            <Nav.Link as={Link} to={"/cart"} style={{fontSize: "larger"}}>
+            <Nav.Link as={Link} to={"/cart"} style={{ fontSize: "larger" }}>
               Total: {total.toLocaleString("es-CL")}$
             </Nav.Link>
           </Nav>

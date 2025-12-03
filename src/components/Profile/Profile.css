@@ -1,36 +1,51 @@
 .profile-container {
-  width: 300px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 24px 28px;
+  border-radius: 18px;
   text-align: center;
-  background: #fafafa;
-  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
-      0 2px 2px hsl(0deg 0% 0% / 0.075),
-      0 4px 4px hsl(0deg 0% 0% / 0.075),
-      0 8px 8px hsl(0deg 0% 0% / 0.075),
-      0 16px 16px hsl(0deg 0% 0% / 0.075);
+  background-color: rgba(64, 64, 64, 0.8); /* similar a .seccionTexto */
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), 0 12px 24px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 .profile-title {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 2px black;
 }
 
 .profile-email {
-  margin-bottom: 20px;
-  font-size: 16px;
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+
+.profile-email strong {
+  color: #ffd54f;
 }
 
 .profile-button {
-  padding: 10px 20px;
-  background: black;
+  padding: 10px 26px;
+  background: #ff7043; /* tono cálido que combina con pizzas/fondo */
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+  transition: background-color 0.2s ease, transform 0.1s ease,
+    box-shadow 0.2s ease;
 }
 
 .profile-button:hover {
-  opacity: 0.85;
+  background: #ff8a50;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+}
+
+.profile-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
 }
