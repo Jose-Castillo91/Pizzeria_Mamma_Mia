@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backend:1": "cd BackEnd/simple-api-backend-nodejs-express-fs-json-jwt-main && npm run dev",
+    "backend:2": "cd \"simple-api-backend-nodejs-express-fs-json-jwt-main 2\" && npm run dev",
+    "backend:all": "concurrently \"npm run backend:1\" \"npm run backend:2\"",
+    "dev:all": "concurrently \"npm run backend:all\" \"npm run dev\""
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -21,6 +25,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
     "eslint": "^9.21.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
