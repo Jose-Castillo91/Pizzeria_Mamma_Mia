@@ -1,15 +1,20 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router";
 import "./Profile.css";
+import { UserContext } from "../../UserContext.jsx";
 
 function Profile() {
-  const email = "usuario@ejemplo.com";
+  const { email, logout } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log("Cerrar sesión sin funcionalidad por ahora)");
+    logout();
+    navigate("/");
   };
 
   return (
     <div className="profile-container">
-      <h2  className="profile-title">Perfil de Usuario</h2>
+      <h2 className="profile-title">Perfil de Usuario</h2>
 
       <p className="profile-email">
         <strong>Email:</strong> {email}

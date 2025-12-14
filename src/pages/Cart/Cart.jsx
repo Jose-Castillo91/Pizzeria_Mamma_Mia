@@ -1,11 +1,13 @@
 import { MyContext } from "../../Context";
 import "./Cart.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../UserContext.jsx";
 
 function Cart() {
   const { cart, setCart, total } = useContext(MyContext);
   const { token } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleAdd = (id) => {
     const updated = cart.map((pizza) =>
@@ -24,12 +26,56 @@ function Cart() {
     setCart(updated);
   };
 
+  const handleCheckout = async () => {
+    if (!token) {
+      alert("Debes iniciar sesión para realizar la compra");
+      return;
+    }
+
+    if (cart.filter((pizza) => pizza.count > 0).length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    setLoading(true);
+    setSuccessMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/checkouts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          cart: cart.filter((pizza) => pizza.count > 0),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al procesar la compra");
+      }
+
+      setSuccessMessage("¡Compra realizada con éxito!");
+      setCart([]);
+    } catch (error) {
+      console.error("Error en checkout:", error);
+      alert("Error al procesar la compra. Por favor, intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const formatCLP = (valor) =>
     valor.toLocaleString("es-CL", { style: "currency", currency: "CLP" });
 
   return (
     <section className="contenedorCart">
       <h2>Detalles del pedido:</h2>
+
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
 
       {cart
         .filter((pizza) => pizza.count > 0)
@@ -61,8 +107,12 @@ function Cart() {
         <h3>
           Total: <span>{formatCLP(total)}</span>
         </h3>
-        <button className="btnPagar" disabled={!token}>
-          Pagar
+        <button
+          className="btnPagar"
+          disabled={!token || loading}
+          onClick={handleCheckout}
+        >
+          {loading ? "Procesando..." : "Pagar"}
         </button>
       </div>
     </section>

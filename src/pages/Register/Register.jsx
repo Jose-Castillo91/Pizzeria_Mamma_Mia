@@ -1,30 +1,54 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router";
 import "./Register.css";
+import { UserContext } from "../../UserContext.jsx";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [confirmar, setConfirmar] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { register } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const onClickHandle = (event) => {
+  const onClickHandle = async (event) => {
     event.preventDefault();
-    console.log({ email, contraseña, confirmar });
+    setError("");
+    setLoading(true);
+
     if (contraseña.length <= 5) {
-      alert("La contraseña debe ser mayor a 5 caracteres");
+      setError("La contraseña debe ser mayor a 5 caracteres");
+      setLoading(false);
+      return;
     }
+
     if (contraseña !== confirmar) {
-      alert("Las contraseñas deben ser iguales");
+      setError("Las contraseñas deben ser iguales");
+      setLoading(false);
+      return;
     }
+
+    const result = await register(email, contraseña);
+
+    if (result.success) {
+      navigate("/");
+    } else {
+      setError(result.error || "Error al registrar usuario");
+    }
+
+    setLoading(false);
   };
 
   return (
     <>
       <h1>Registro</h1>
       <form action="" className="contenedorInput" onSubmit={onClickHandle}>
+        {error && <div className="error-message">{error}</div>}
         <label htmlFor="inputEmail">Email</label>
         <input
           id="inputEmail"
-          type="text"
+          type="email"
           placeholder="Ingresatumail@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -34,7 +58,7 @@ function Register() {
         <label htmlFor="inputContraseña">Contraseña</label>
         <input
           id="inputContraseña"
-          type="text"
+          type="password"
           placeholder="Ingresa tu contraseña"
           value={contraseña}
           onChange={(e) => setContraseña(e.target.value)}
@@ -43,14 +67,16 @@ function Register() {
         <label htmlFor="inputConfirmarContraseña">Confirmar contraseña</label>
         <input
           id="inputConfirmarContraseña"
-          type="text"
+          type="password"
           placeholder="Ingresa tu contraseña"
           value={confirmar}
           onChange={(e) => setConfirmar(e.target.value)}
           required
         />
 
-        <button type="submit">Enviar</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Cargando..." : "Enviar"}
+        </button>
       </form>
     </>
   );
